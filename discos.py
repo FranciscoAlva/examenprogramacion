@@ -1,4 +1,5 @@
 import sqlite3
+import sys 
 
 #menu
 def menu():
@@ -86,6 +87,7 @@ def menu():
         
     elif opcion == "6":
         print("Salimos del programa")
+        sys.exit()
         
     #menurecursivo
     menu()
