@@ -41,6 +41,18 @@ def menu():
         
     elif opcion == "3":
         print("Modificamos los registros")
+        Identificador = input("Introduce el Id: ")
+        artista = input("Introduce el artista: ")
+        anio = input("Introduce el año: ")
+        titulo = input("Introduce el título: ")
+        conexion = sqlite3.connect("discos.db")
+        cursor = conexion.cursor()
+        peticion = "UPDATE discos SET artista = '"+artista+"',anio="+anio+",titulo='"+titulo+"' WHERE Identificador="+Identificador+""
+        cursor.execute(peticion)
+        conexion.commit()
+        conexion.close()
+        print("Tu resgistro se modifico correctamente")
+        
         
     elif opcion == "4":
         print("Eliminamos los registros")
@@ -68,7 +80,7 @@ def menu():
                 break
             print(fila)
         if contador < 2:
-            print("No se encontro ningun registro","/n")
+            print("No se encontro ningun registro")
         conexion.commit()
         conexion.close()
         
