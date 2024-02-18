@@ -1,7 +1,7 @@
 import sqlite3
 import sys 
 
-#menu
+#MENU
 def menu():
     print("Escoge una opcion: ")
     print("1.-Insertar un registro")
@@ -13,6 +13,7 @@ def menu():
     opcion = input("Escoge una opcion: ")
     
     #if elif
+    #INSERTAR
     if opcion == "1":
         print("Insertamos un registro")
         artista = input("Introduce el artista: ")
@@ -26,6 +27,7 @@ def menu():
         conexion.close()
         print("Tu resgistro de guardo correctamente")
         
+    #MOSTRAR    
     elif opcion == "2":
         print("Mostramos los registros")
         conexion = sqlite3.connect("discos.db")
@@ -40,6 +42,7 @@ def menu():
         conexion.commit()
         conexion.close()
         
+    #MODIFICAR    
     elif opcion == "3":
         print("Modificamos los registros")
         Identificador = input("Introduce el Id: ")
@@ -54,7 +57,7 @@ def menu():
         conexion.close()
         print("Tu resgistro se modifico correctamente")
         
-        
+    #ELIMINAR    
     elif opcion == "4":
         print("Eliminamos los registros")
         Identificador = input("Introduce el Id del registro a eliminar: ")
@@ -65,6 +68,7 @@ def menu():
         conexion.commit()
         conexion.close()
         
+    #BUSCAR     
     elif opcion == "5":
         print("Buscamos los registros")
         artista = input("Introduce el nombre del artista: ")
@@ -85,11 +89,12 @@ def menu():
         conexion.commit()
         conexion.close()
         
+    #SALIR     
     elif opcion == "6":
         print("Salimos del programa")
         sys.exit()
         
-    #menurecursivo
+    #MENURECURSIVO
     menu()
 menu()
     
