@@ -59,11 +59,16 @@ def menu():
         cursor = conexion.cursor()
         peticion = "SELECT * FROM discos WHERE artista LIKE '%"+artista+"%'"
         cursor.execute(peticion)
+        contador = 0
         while True:
+            encontrado = True
+            contador += 1
             fila = cursor.fetchone()
             if fila is None:
                 break
             print(fila)
+        if contador < 2:
+            print("No se encontro ningun registro","/n")
         conexion.commit()
         conexion.close()
         
